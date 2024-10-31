@@ -1,28 +1,17 @@
-import Counter  from "./Counter";
-import {useState} from "react";
+import Home from "./Home";
+import About from "./About";
+
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 function App() {
-
-    const [color, setColor] = useState("lightBlue");
-
-    return (
-        <div>
-            <h1 >
-                Hi from React
-            </h1>
-
-            <br />
-
-            <Counter name={"Push Ups"} color={color} size={"24pt"}/>
-
-            <Counter name={"Glasses of Water"} color={color} size={"14pt"} />
-
-            <button onClick={
-                    () => {setColor("yellow")}}
-                    type="submit">Change Color</button>
-
-        </div>
-    );
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
